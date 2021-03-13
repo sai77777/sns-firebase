@@ -1,0 +1,9 @@
+{
+  "scripts": {
+    "serve": "firebase emulators:start",
+    "deploy:functions": "firebase deploy --only functions",
+    "deploy:firestore:rules": "firebase deploy --only firestore:rules",
+    "deploy:firestore:indexes": "firebase deploy --only firestore:indexes",
+    "deploy:storage:rules": "firebase deploy --only storage:rules"
+  }
+}

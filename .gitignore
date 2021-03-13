@@ -1,0 +1,5 @@
+node_modules
+google-service-account.json
+yarn.lock
+functions/yarn.lock
+functions/node_modules
