@@ -34,7 +34,7 @@ export const createFollowTweetByCreateTweet = functions.firestore
         batch.create(followTweetsRef.doc(tweet.id), {
           ref: snapshot.ref,
           writer: tweet.writer,
-          origin: tweet.origin,
+          //origin: tweet.origin,
           createdAt: tweet.createdAt,
           updateAt: tweet.updatedAt,
         })

@@ -9,9 +9,9 @@ export const createUserCallable = functions.https.onCall(async (data) => {
 
   const userRef = db.collection('users').doc(uid)
   const userSnapshot = await userRef.get()
-  // if (userSnapshot.exists) {
-  //   return { message: `already create ${uid} user` }
-  // }
+  if (userSnapshot.exists) {
+    return { message: `already create ${uid} user` }
+  }
 
   const user = {
     name: data.displayName ?? '未設定',

@@ -26,10 +26,10 @@ export const createFollowTweetByCreateFollowUser = functions.firestore
     const tweetsRef = followUser.ref.collection('tweets')
     const tweetsSnapshot = await tweetsRef.limit(count).get()
     const tweets = tweetsSnapshot.docs.map((doc) => buildTweet(doc.id, doc.data()))
-
+    
     const followTweetsRef = db.collection('users').doc(uid).collection('followTweets')
 
-    const tweetChunk = chunk(tweets, 500)
+    const tweetChunk = chunk(tweets, 400)
 
     for (const tweets of tweetChunk) {
       const batch = db.batch()
@@ -38,7 +38,7 @@ export const createFollowTweetByCreateFollowUser = functions.firestore
         batch.create(followTweetsRef.doc(tweet.id), {
           ref: tweetRef,
           writer: tweet.writer,
-          origin: tweet.origin,
+          //origin: tweet.origin,
           createdAt: tweet.createdAt,
           updatedAt: tweet.updatedAt,
         })
